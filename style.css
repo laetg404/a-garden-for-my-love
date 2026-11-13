@@ -1,0 +1,44 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #070a22; }
+body { min-height: 100svh; display: grid; place-items: center; overflow-x: hidden; }
+.garden {
+  position: relative;
+  width: min(100vw, calc(100svh * 1100 / 760));
+  max-width: 1100px;
+  aspect-ratio: 1100 / 760;
+  overflow: hidden;
+  background: #070a22;
+  box-shadow: 0 18px 70px rgba(0,0,0,.35);
+}
+canvas { display: block; width: 100%; height: 100%; }
+ .message-controls {
+  position: absolute;
+  right: 5.8%;
+  bottom: 4.8%;
+  display: flex;
+  gap: 8px;
+}
+.message-controls button {
+  border: 1px solid rgba(255,217,236,.65);
+  border-radius: 999px;
+  padding: .65em 1.1em;
+  color: #ffe6f0;
+  background: rgba(15,24,54,.94);
+  font: clamp(10px,1.2vw,14px) Georgia,serif;
+  cursor: pointer;
+  transition: background .2s ease, opacity .2s ease;
+}
+.message-controls button:hover:not(:disabled) { background: #5c4a8c; }
+.message-controls button:focus-visible { outline: 2px solid #ffd9ec; outline-offset: 3px; }
+.message-controls button:disabled { opacity: .35; cursor: not-allowed; }
+#hint {
+  position: absolute; left: 6.4%; bottom: 2.5%; margin: 0;
+  color: rgba(220,220,255,.72); font: clamp(8px,1vw,11px) Georgia,serif;
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .garden { width: 100vw; }
+  .message-controls { right: 2.5%; bottom: 5%; gap: 5px; }
+  .message-controls button { padding: .55em .8em; font-size: 9px; }
+  #hint { left: 3%; bottom: 2.3%; max-width: 58%; }
+}
